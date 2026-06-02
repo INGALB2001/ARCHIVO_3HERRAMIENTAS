@@ -390,22 +390,3 @@ def generar_remision(data, out_path, sello_path=None, evidencia_path=None):
     c.showPage()
     c.save()
     print('Remision generada: ' + out_path)
- 
- 
-if __name__ == '__main__':
-    datos = {
-        "rfc_emisor":"CPS240403132","proveedor":"209887",
-        "fecha":"01/06/2026","numero_cotizacion":"157","numero_remision":"177",
-        "iva_porciento":16,
-        "cliente":{"razon_social":"PRODUCTORA DE TARIMAS DEL SUR S.A. DE C.V.",
-            "rfc":"PTS991116629","direccion":"AV. TEJOCOTES KM 2, CUAUTITLAN, CP 54763",
-            "correo":"","atencion":"SRITA. MIRIAM NAVA"},
-        "partidas":[
-            {"tipo":"partida","numero":"01","cantidad":1,"sku":"","concepto":"SUMINISTRO DE MOTOR GDZ-100-3.0 220V ROUTER BOLEADORA LADO DERECHO","precio_unitario":4500},
-            {"tipo":"partida","numero":"02","cantidad":2,"sku":"","concepto":"ACTUADORES NEUMATICOS SMC DOBLE EFECTO","precio_unitario":1800},
-            {"tipo":"partida","numero":"03","cantidad":4,"sku":"","concepto":"SENSORES FOTOELECTRICOS BANNER","precio_unitario":950},
-        ],
-        "nota":"TIEMPO DE ENTREGA 3 DIAS HABILES",
-        "firma_nombre":"Ing. Alberto Lopez Malvaez","firma_cargo":"DIRECTOR GENERAL"
-    }
-    generar_remision(datos, '/tmp/test_remision.pdf')
