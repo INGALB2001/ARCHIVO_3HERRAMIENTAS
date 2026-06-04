@@ -150,7 +150,7 @@ def build_remision_story(data, sello_path=None):
     story.append(cli)
  
     CW = [10*mm, 12*mm, TW-10*mm-12*mm-22*mm-22*mm, 22*mm, 22*mm]
-    hdrs = ['CANT.','','C O N C E P T O','P. UNITARIO','TOTAL']
+    hdrs = ['PARTIDA','CANT.','C O N C E P T O','P. UNITARIO','TOTAL']
     rows = [[Paragraph(h, S['ch']) for h in hdrs]]
     sty  = [
         ('BACKGROUND',(0,0),(-1,0),AZUL),
@@ -173,8 +173,8 @@ def build_remision_story(data, sello_path=None):
             p_unit = float(item.get('precio_unitario',0) or 0)
             tot    = cant * p_unit; subtotal += tot
             rows.append([
+                Paragraph(str(item.get('numero','')),   S['bc']),
                 Paragraph(str(item.get('cantidad','')), S['c']),
-                Paragraph(str(item.get('numero','')),   S['c']),
                 Paragraph(item.get('concepto',''),      S['co']),
                 Paragraph(fm(p_unit), S['mr']),
                 Paragraph(fm(tot),    S['mbr']),
